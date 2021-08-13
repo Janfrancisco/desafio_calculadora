@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,6 +32,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   TextEditingController weightController = TextEditingController();
   TextEditingController heightController = TextEditingController();
+
+  var maskFormatterHeight =
+      new MaskTextInputFormatter(mask: '#.##', filter: {"#": RegExp(r'[0-9]')});
   String? _result;
 
   void resetFields() {
@@ -64,21 +68,26 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
           child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(58.0),
         child: Column(
           children: [
             TextField(
               controller: weightController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(hintText: 'Peso(Kg)'),
+              decoration:
+                  InputDecoration(hintText: 'Peso(Kg)', suffixText: 'Kg'),
             ),
             SizedBox(
               height: 20,
             ),
             TextField(
+              inputFormatters: [maskFormatterHeight],
               controller: heightController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(hintText: 'Altura(m)'),
+              decoration: InputDecoration(
+                hintText: 'Altura(m)',
+                suffixText: 'm',
+              ),
             ),
             SizedBox(
               height: 20,
