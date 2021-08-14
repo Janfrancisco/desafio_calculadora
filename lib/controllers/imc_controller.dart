@@ -2,8 +2,8 @@ import 'package:get/get.dart';
 
 class MyIMCController extends GetxController {
   final _obj = 'Digite seu dados. O resultado aparecerá aqui!'.obs;
-  final _height = 10.obs;
-  final _weight = 10.obs;
+  final _height = ''.obs;
+  final _weight = ''.obs;
   set obj(value) => this._obj.value = value;
   get obj => this._obj.value;
 
@@ -31,6 +31,6 @@ class MyIMCController extends GetxController {
   }
 
   void resetFields() {
-    height = null;
+    height = '';
   }
 }

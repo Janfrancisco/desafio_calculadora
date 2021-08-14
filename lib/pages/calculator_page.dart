@@ -49,6 +49,8 @@ class CalculatorPage extends GetWidget {
                 onPressed: () {
                   controller.imcCalculate(
                       heightController.text, weightController.text);
+                  weightController.clear();
+                  heightController.clear();
                 },
                 child: Text('Calcular IMC'),
               ),
