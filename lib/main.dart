@@ -1,3 +1,4 @@
+import 'package:calculator_imc/pages/calculator_page.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
@@ -10,13 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'WBC Sistemas - Calculadora de IMC',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: MyHomePage(title: 'IMC Calculator - WBC Sistemas'),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'WBC Sistemas - Calculadora de IMC',
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+        ),
+        home:
+            CalculatorPage() //MyHomePage(title: 'IMC Calculator - WBC Sistemas'),
+        );
   }
 }
 
