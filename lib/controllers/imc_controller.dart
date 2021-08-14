@@ -1,7 +1,10 @@
 import 'package:get/get.dart';
 
 class MyIMCController extends GetxController {
+  static MyIMCController get to => Get.find();
+
   final _obj = 'Digite seu dados. O resultado aparecerá aqui!'.obs;
+
   final _height = ''.obs;
   final _weight = ''.obs;
   set obj(value) => this._obj.value = value;
@@ -14,6 +17,7 @@ class MyIMCController extends GetxController {
   get weight => this._weight.value;
 
   void imcCalculate(String mHeight, String mWeight) {
+    print('imcCalculate');
     double weight = double.parse(mWeight);
     double height = double.parse(mHeight);
     double imc = weight / (height * height);
@@ -27,10 +31,5 @@ class MyIMCController extends GetxController {
     } else if (imc >= 29.9) {
       obj = "Seu IMC é: ${imc.toStringAsFixed(2)} Obesidade ";
     }
-    resetFields();
-  }
-
-  void resetFields() {
-    height = '';
   }
 }

@@ -47,10 +47,10 @@ class CalculatorPage extends GetWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  controller.imcCalculate(
+                  MyIMCController.to.imcCalculate(
                       heightController.text, weightController.text);
-                  weightController.clear();
-                  heightController.clear();
+                  heightController.text = MyIMCController.to.height;
+                  weightController.text = MyIMCController.to.weight;
                 },
                 child: Text('Calcular IMC'),
               ),
@@ -58,8 +58,10 @@ class CalculatorPage extends GetWidget {
                 height: 20,
               ),
               GetX<MyIMCController>(
+                init: MyIMCController(),
+                initState: (_) {},
                 builder: (_) {
-                  return Text(_.obj.toString());
+                  return Text(_.obj);
                 },
               ),
             ],
